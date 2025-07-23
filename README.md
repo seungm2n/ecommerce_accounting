@@ -162,7 +162,7 @@ curl -X POST https://13b740a7f6bf.ngrok-free.app/api/v1/accounting/process
 특정 사업체의 분류된 회계 데이터를 조회하려면:
 
 ```bash
-curl "https://13b740a7f6bf.ngrok-free.app/api/v1/accounting/records?companyId=com_1"
+curl -X GET "https://13b740a7f6bf.ngrok-free.app/api/v1/accounting/records?companyId=com_1"
 ```
 - com_1 부분은 조회하고 싶은 사업체 ID로 변경 가능합니다.
 ---

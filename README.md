@@ -130,9 +130,9 @@ CREATE TABLE TRANSACTION (
 ---
 ## 3. 실행 및 테스트 가이드
 
-### 🔗 서버 주소  
-**https://af88e1402d42.ngrok-free.app**  
-[참고]**https://af88e1402d42.ngrok-free.app/docs** 에서는 API DOCS를 확인할 수 있습니다.
+### 서버 주소  
+- 서버 주소 : **https://af88e1402d42.ngrok-free.app**  
+- API Docs : **https://af88e1402d42.ngrok-free.app/docs**
 ---
 
 ### 3.1. 로컬 파일로 테스트하는 방법

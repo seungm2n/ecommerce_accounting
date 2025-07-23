@@ -36,7 +36,6 @@ async def process_transactions(
     else:
         rule_path = rule_file
 
-    # 데이터 로딩
     df = pd.read_csv(bank_path)
     with open(rule_path, "r", encoding="utf-8") as f:
         rules = json.load(f)
@@ -48,7 +47,6 @@ async def process_transactions(
     classified_list = []
     unclassified_list = []
 
-    # 회사/카테고리 DB 저장 (없으면 등록)
     for comp in rules["companies"]:
         company = db.query(company_model.Company).filter_by(company_id=comp["company_id"]).first()
         if not company:
@@ -68,7 +66,6 @@ async def process_transactions(
                 db.add(category)
     db.commit()
 
-    # 거래내역 자동 분류 및 저장
     for idx, row in df.iterrows():
         desc = str(row.get("적요", ""))
         거래일시 = row.get("거래일시")
@@ -163,35 +160,3 @@ async def process_transactions(
             "미분류목록": unclassified_list
         }
     }
-
-
-async def get_records(company_id: str):
-    db: Session = SessionLocal()
-    transactions = (
-        db.query(transaction_model.Transaction)
-        .filter(transaction_model.Transaction.company_id == company_id)
-        .all()
-    )
-    results = []
-    for t in transactions:
-        category = None
-        if t.category_id:
-            category = db.query(category_model.Category).filter_by(category_id=t.category_id).first()
-        results.append({
-            "거래번호": t.transaction_id,
-            "거래일시": t.transaction_date,
-            "회사번호": t.company_id,
-            "카테고리번호": t.category_id,
-            "카테고리명": category.category_name if category else None,
-            "적요": t.description,
-            "입금액": t.deposit,
-            "출금액": t.withdrawal,
-            "거래후잔액": t.balance,
-            "분류여부": t.is_matched,
-            "생성일시": t.create_date,
-            "생성자": t.create_by,
-            "수정일시": t.update_date,
-            "수정자": t.update_by,
-        })
-    db.close()
-    return results

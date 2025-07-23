@@ -1,9 +1,8 @@
 from fastapi import APIRouter, UploadFile, File, HTTPException, Query
-from app.services.accounting_service import (
-    process_transactions,
-    get_records,
-)
 from typing import Any, Optional
+
+from app.services.accounting_classifier import process_transactions
+from app.services.accounting_records import get_records
 import os
 
 router = APIRouter()
@@ -15,7 +14,6 @@ async def process_accounting(
     rule_file: Optional[UploadFile] = File(None)
 ) -> Any:
     try:
-        # 파일이 없으면 기본 경로로 대체
         if bank_file is None:
             bank_file = "./data/bank_transactions.csv"
         if rule_file is None:

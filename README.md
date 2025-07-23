@@ -131,8 +131,8 @@ CREATE TABLE TRANSACTION (
 ## 3. 실행 및 테스트 가이드
 
 ### 서버 주소  
-- 서버 주소 : **https://af88e1402d42.ngrok-free.app**  
-- API Docs : **https://af88e1402d42.ngrok-free.app/docs**
+- 서버 주소 : **https://13b740a7f6bf.ngrok-free.app**  
+- API Docs : **https://13b740a7f6bf.ngrok-free.app/docs**
 ---
 
 ### 3.1. 로컬 파일로 테스트하는 방법
@@ -144,7 +144,7 @@ CREATE TABLE TRANSACTION (
 
 #### 실행 명령어:
 ```bash
-curl -X POST https://af88e1402d42.ngrok-free.app/api/v1/accounting/process \
+curl -X POST https://13b740a7f6bf.ngrok-free.app/api/v1/accounting/process \
   -F "bank_transactions=@bank_transactions.csv" \
   -F "rules=@rules.json"
 ```
@@ -154,7 +154,7 @@ curl -X POST https://af88e1402d42.ngrok-free.app/api/v1/accounting/process \
 서버 컨테이너에 내장된 예시 파일을 사용할 경우:
 
 ```bash
-curl -X POST https://af88e1402d42.ngrok-free.app/api/v1/accounting/process
+curl -X POST https://13b740a7f6bf.ngrok-free.app/api/v1/accounting/process
 ```
 - 서버 내부에 정의되어 있는 /app/data/bank_transactions.csv 및 /app/data/rules.json 파일을 사용하여 처리합니다.
 
@@ -162,7 +162,7 @@ curl -X POST https://af88e1402d42.ngrok-free.app/api/v1/accounting/process
 특정 사업체의 분류된 회계 데이터를 조회하려면:
 
 ```bash
-curl "https://af88e1402d42.ngrok-free.app/api/v1/accounting/records?companyId=com_1"
+curl "https://13b740a7f6bf.ngrok-free.app/api/v1/accounting/records?companyId=com_1"
 ```
 - com_1 부분은 조회하고 싶은 사업체 ID로 변경 가능합니다.
 ---

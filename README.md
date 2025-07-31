@@ -1,5 +1,8 @@
 # ecommerce_accounting
 
+```
+분류 기준을 정의하고, 정의된 기준에 따라 자동 회계를 처리하도록 설계되어진 프로젝트입니다.
+```
 
 # 시스템 아키텍처 및 실행 가이드
 
@@ -113,6 +116,7 @@ CREATE TABLE TRANSACTION (
 - 서버 주소 : **https://13b740a7f6bf.ngrok-free.app**  
 - API Docs : **https://13b740a7f6bf.ngrok-free.app/docs**
 ---
+* 현재는 기동 중이 아님
 
 ### 3. 로컬 파일로 테스트하는 방법
 

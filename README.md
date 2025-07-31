@@ -114,7 +114,7 @@ CREATE TABLE TRANSACTION (
 - API Docs : **https://13b740a7f6bf.ngrok-free.app/docs**
 ---
 
-### 3 로컬 파일로 테스트하는 방법
+### 3. 로컬 파일로 테스트하는 방법
 
 #### 준비:
 - 아래 두 파일을 현재 디렉토리에 준비하세요:
